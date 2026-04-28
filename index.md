@@ -110,18 +110,23 @@ sns.barplot(
     x=list(own_freq.keys()), # pulls own_examples data keys into a list.
     y=list(own_freq.values())) # pulls own_examples data values into a list.
 plt.title("Own Examples") # this fn creates the bar graph for own_examples.
+plt.savefig("static/imgs/own_examples.png")
 
 plt.figure() # makes it so we can have 3 different graphs.
 sns.barplot(
     x=list(pre_freq.keys()), # pulls pre_lecture_videos data keys into a list.
     y=list(pre_freq.values())) # pulls pre_lecture_videos_ data values into a list.
 plt.title("Pre-Lecture Videos") # this fn creates the bar graph for pre_lecture_videos
+plt.savefig("static/imgs/prelecture.png")
 
 plt.figure() # makes it so we can have 3 different graphs.
 sns.barplot(
     x=list(qz_freq.keys()), # pulls qz_effective data keys into a list.
     y=list(qz_freq.values())) # pulls qz_effective values into a list.
 plt.title("Quiz Effectiveness") # this fn creates the bar graph for qz__effective
+plt.savefig("static/imgs/quizzes.png")
+
+plt.show()
 
 <!-- This is a comment. Below, you'll see code for inserting an image. To make this image appear, update <custom-path>. To add an image, save it inside the imgs folder of this repository. -->
 <img src="<custom-path>/static/imgs/logo.png" alt="Image of Comp110 rainbow logo. "  width="500"/>
