@@ -67,13 +67,11 @@ from data_utils import convert_columns_to_int, read_csv_rows, columnar, concat, 
 sns.set_theme() # part of seaborn fn.
 
 izzi_rows = read_csv_rows("data/survey_izzi.csv")
-alyssa_rows = read_csv_rows("data/survey_alyssa.csv")
-# calls the data into our workspace.
+alyssa_rows = read_csv_rows("data/survey_alyssa.csv") # these two fns calls the data into our workspace.
 
 izzi_cols = columnar(izzi_rows)
 alyssa_cols = columnar(alyssa_rows)
-combined = concat(izzi_cols, alyssa_cols)
-# converts the data so we can concatenate it.
+combined = concat(izzi_cols, alyssa_cols) # converts the data so we can concatenate it.
 
 preview = head(combined, 10) # returns the first 10 rows of data.
 
@@ -93,8 +91,7 @@ def filter_high_values(column: list[int], threshold: int) -> list[int]:
     for value in column: 
         if value > threshold: 
             result.append(value) 
-    return result 
-# creates images.
+    return result # this fn creates images.
  
 high_pre = filter_high_values(clean["pre_lecture_videos"], 5) # also does something with images.
 
@@ -102,34 +99,29 @@ def count(values):
     freq = {}
     for v in values:
         freq[v] = freq.get(v, 0) + 1
-    return freq
-# searches for recurring values.
+    return freq # this fn searches for recurring values.
 
 own_freq = count(clean["own_examples"])
 pre_freq = count(clean["pre_lecture_videos"])
-qz_freq = count(clean["qz_effective"])
-# counts how often a value recurs in the data, used to make the bar graphs.
+qz_freq = count(clean["qz_effective"]) # these fns counts how often a value recurs in the data, used to make the bar graphs.
 
 plt.figure() # makes it so we can have 3 different graphs.
 sns.barplot(
     x=list(own_freq.keys()), # pulls own_examples data keys into a list.
     y=list(own_freq.values())) # pulls own_examples data values into a list.
-plt.title("Own Examples")
-# creates the bar graph for own_examples.
+plt.title("Own Examples") # this fn creates the bar graph for own_examples.
 
 plt.figure() # makes it so we can have 3 different graphs.
 sns.barplot(
     x=list(pre_freq.keys()), # pulls pre_lecture_videos data keys into a list.
     y=list(pre_freq.values())) # pulls pre_lecture_videos_ data values into a list.
-plt.title("Pre-Lecture Videos")
-# creates the bar graph for pre_lecture_videos
+plt.title("Pre-Lecture Videos") # this fn creates the bar graph for pre_lecture_videos
 
 plt.figure() # makes it so we can have 3 different graphs.
 sns.barplot(
     x=list(qz_freq.keys()), # pulls qz_effective data keys into a list.
     y=list(qz_freq.values())) # pulls qz_effective values into a list.
-plt.title("Quiz Effectiveness")
-# creates the bar graph for qz__effective
+plt.title("Quiz Effectiveness") # this fn creates the bar graph for qz__effective
 
 <!-- This is a comment. Below, you'll see code for inserting an image. To make this image appear, update <custom-path>. To add an image, save it inside the imgs folder of this repository. -->
 <img src="<custom-path>/static/imgs/logo.png" alt="Image of Comp110 rainbow logo. "  width="500"/>
